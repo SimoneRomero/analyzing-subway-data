@@ -13420,7 +13420,7 @@ linha 5...</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -13441,7 +13441,7 @@ linha 5...</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13457,7 +13457,7 @@ linha 5...</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13589,7 +13589,7 @@ linha 5...</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_test</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -13606,7 +13606,7 @@ linha 5...</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13708,7 +13708,7 @@ linha 5...</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -13716,13 +13716,7 @@ linha 5...</p>
 <span class="k">def</span> <span class="nf">get_hourly_entries</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
     
     <span class="c1">#your code here</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ENTRIESn_hourly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
-        <span class="n">actual_v</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ENTRIESn&#39;</span><span class="p">]</span>
-        <span class="n">previous_v</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ENTRIESn&#39;</span><span class="p">]</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ENTRIESn_hourly&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">actual_v</span> <span class="o">-</span> <span class="n">previous_v</span>
-    <span class="k">return</span> <span class="n">df</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ENTRIESn_hourly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ENTRIESn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="n">get_hourly_entries</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
@@ -13740,7 +13734,7 @@ linha 5...</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -15727,7 +15721,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -15749,7 +15743,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -15939,22 +15933,17 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">num_rainy_days</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="c1">#your code here</span>
-    <span class="n">total_rain</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rain&#39;</span><span class="p">])</span> <span class="c1">#atribui valor do primeiro dia</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
-        <span class="n">data_atual</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;DATEn&#39;</span><span class="p">]</span>
-        <span class="n">data_anterior</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;DATEn&#39;</span><span class="p">]</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">data_anterior</span> <span class="o">!=</span> <span class="n">data_atual</span><span class="p">):</span>
-            <span class="n">total_rain</span> <span class="o">=</span> <span class="n">total_rain</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;rain&#39;</span><span class="p">])</span>       
-    
-    <span class="k">print</span> <span class="s1">&#39;Quantidade de dias chuvosos: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_rain</span><span class="p">)</span>
+    <span class="c1">#your code here    </span>
+    <span class="n">n_days</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">rain</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;DATEn&#39;</span><span class="p">))</span>
+    <span class="k">print</span> <span class="s1">&#39;Quantidade de dias chuvosos: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
 
 <span class="n">num_rainy_days</span><span class="p">(</span><span class="n">metro_weather</span><span class="p">)</span>
+
+<span class="c1">#referência: sugestão do revisor</span>
 </pre></div>
 
     </div>
@@ -16321,7 +16310,7 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:<
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ambos os casos não apresentam uma distribuição normal, sendo o volume de entradas muito maior em dias chuvosos.</p>
+<p>Ambos os casos apresentam uma distribuição assimétrica positiva, sendo o volume de entradas muito maior em dias chuvosos.</p>
 
 </div>
 </div>
